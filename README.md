@@ -20,6 +20,11 @@ Outcomes are self-reported. The math is on the profile and on each project page.
 
 ## Run it
 
+```bash
+git clone https://github.com/Rajveerrsingh/StackProof
+cd StackProof
+```
+
 You need Node 22. MongoDB is optional. With no `MONGODB_URI`, the API keeps everything in memory and seeds the demo on startup.
 
 ```bash
