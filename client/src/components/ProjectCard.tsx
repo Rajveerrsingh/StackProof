@@ -9,11 +9,14 @@ export function ProjectCard({ project }: { project: Project }) {
     <article className="card">
       <div className="card-top">
         <time dateTime={project.shippedAt}>{formatMonth(project.shippedAt)}</time>
-        <span className="xp">{formatInt(project.xp)} xp</span>
+        <span className="xp">{formatInt(project.xp)} XP</span>
       </div>
-      <h2>
-        <Link to={`/projects/${project.id}`}>{project.title}</Link>
-      </h2>
+      <div className="card-art">
+        <h2>
+          <Link to={`/projects/${project.id}`}>{project.title}</Link>
+        </h2>
+        <ProofSeal value={project.proof} size="sm" />
+      </div>
       <p className="summary">{project.summary}</p>
       <ToolChips tools={project.tools} />
       <p className="stack-line">{project.stack.join(' · ')}</p>
@@ -39,7 +42,7 @@ export function ProjectCard({ project }: { project: Project }) {
         ) : (
           <span />
         )}
-        <ProofSeal value={project.proof} size="sm" />
+        <span className="card-rarity">Shipped</span>
       </footer>
     </article>
   )

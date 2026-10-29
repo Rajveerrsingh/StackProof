@@ -36,7 +36,7 @@ export function LoginPage() {
     <div className="auth-split">
       <section className="auth-copy">
         <p className="kicker">StackProof</p>
-        <h1>Sign in and keep the receipt.</h1>
+        <h1>Sign in. Your cards are waiting.</h1>
         <p className="dek">The demo profile is already on the board. Same password works for both seeded accounts.</p>
         <button
           type="button"

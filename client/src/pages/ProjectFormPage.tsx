@@ -119,7 +119,7 @@ export function ProjectFormPage() {
   return (
     <form className="editor" onSubmit={onSubmit} noValidate>
       <p className="kicker">{editing ? 'Edit' : 'New entry'}</p>
-      <h1>{editing ? 'Update the receipt' : 'Log a project'}</h1>
+      <h1>{editing ? 'Update this card' : 'Log a project'}</h1>
       <p className="dek">Be specific. The score uses the numbers you put here, and a hiring manager might ask about them.</p>
 
       <fieldset>

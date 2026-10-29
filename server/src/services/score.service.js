@@ -1,7 +1,7 @@
 /**
  * Scoring
  * -------
- * Outcomes are self-reported. The score is a receipt, not a certificate.
+ * Outcomes are self-reported. The score is a number you can explain, not a certificate.
  *
  * Project proof (0–100) = round(clamp(skill + outcome + evidence))
  *
