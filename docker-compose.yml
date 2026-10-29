@@ -1,0 +1,33 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: ./server
+    restart: unless-stopped
+    environment:
+      PORT: 4721
+      NODE_ENV: production
+      MONGODB_URI: mongodb://mongo:27017/stackproof
+      JWT_SECRET: dev-stackproof-change-me
+      CLIENT_ORIGIN: http://localhost:43123
+    ports:
+      - "4721:4721"
+    depends_on:
+      - mongo
+
+  web:
+    build: ./client
+    restart: unless-stopped
+    ports:
+      - "43123:80"
+    depends_on:
+      - api
+
+volumes:
+  mongo-data:
