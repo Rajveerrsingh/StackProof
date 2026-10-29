@@ -29,8 +29,8 @@ describe('public profile', () => {
     expect(profile.proofScore).toBeLessThanOrEqual(100);
     expect(profile.stats.projects).toBe(5);
     expect(profile.stats.hoursSaved).toBe(20 + 36 + 14 + 10 + 8);
-    expect(profile.tools[0].tool).toBe('Cursor');
-    expect(profile.tools[0].count).toBe(5);
+    const cursor = profile.tools.find((row) => row.tool === 'Cursor');
+    expect(cursor).toMatchObject({ count: 3, share: 75 });
     expect(formula.developer).toMatch(/proof score/);
   });
 

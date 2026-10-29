@@ -7,8 +7,8 @@ describe('ToolChart', () => {
     render(
       <ToolChart
         tools={[
-          { tool: 'Cursor', count: 5, share: 100 },
-          { tool: 'GitHub Copilot', count: 3, share: 60 },
+          { tool: 'GitHub Copilot', count: 4, share: 80 },
+          { tool: 'Cursor', count: 3, share: 60 },
           { tool: 'Claude Code', count: 2, share: 40 },
         ]}
       />,
@@ -18,7 +18,7 @@ describe('ToolChart', () => {
     expect(list).toBeInTheDocument()
     expect(screen.getByText('Cursor')).toBeInTheDocument()
     expect(screen.getByText('GitHub Copilot')).toBeInTheDocument()
-    expect(screen.getByText('5')).toBeInTheDocument()
+    expect(screen.getByText('3')).toBeInTheDocument()
     expect(screen.getByText('2')).toBeInTheDocument()
   })
 

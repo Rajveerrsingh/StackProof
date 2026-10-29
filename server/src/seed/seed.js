@@ -6,7 +6,7 @@ const RAJVEER_PROJECTS = [
     summary: 'A small kanban board I built so course work and applications stopped living in five different notes apps.',
     story:
       'Columns, due dates, and drag-and-drop. I actually used it for a semester: assignments on the left, applications in the middle, shipped on the right. Auth is JWT, tasks sit in MongoDB, and moving a card does not reload the page. The messy part was the drag library fighting my own state — I ended up keeping the order on the task itself and sorting on read.',
-    tools: ['Cursor', 'GitHub Copilot'],
+    tools: ['Claude Code', 'GitHub Copilot'],
     stack: ['React', 'Node.js', 'Express', 'MongoDB'],
     outcomes: { hoursSaved: 20, featuresShipped: 8, users: 12 },
     difficulty: 6,
@@ -58,7 +58,7 @@ const RAJVEER_PROJECTS = [
     summary: 'A filterable sneaker catalog. Brand, size, price, and a cart that is still there after refresh.',
     story:
       'Frontend project. The grid, the filters, and a cart in local storage. Most of the time went into the phone layout: the grid drops to one column and the filters open as a sheet instead of shoving the prices off screen. There is no checkout. I wanted browsing to feel finished before I pretended to take payments.',
-    tools: ['Cursor'],
+    tools: ['GitHub Copilot'],
     stack: ['React', 'TypeScript', 'CSS'],
     outcomes: { hoursSaved: 8, featuresShipped: 6, users: 35 },
     difficulty: 4,
