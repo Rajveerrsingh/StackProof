@@ -138,7 +138,10 @@ function createMongoRepository() {
 }
 
 async function connectMongo(uri) {
-  await mongoose.connect(uri, { serverSelectionTimeoutMS: 8000 });
+  if (mongoose.connection.readyState !== 0) {
+    await mongoose.disconnect();
+  }
+  await mongoose.connect(uri, { serverSelectionTimeoutMS: 4000 });
   return createMongoRepository();
 }
 
