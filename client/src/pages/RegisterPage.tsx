@@ -58,7 +58,7 @@ export function RegisterPage() {
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             autoComplete="username"
-            placeholder="rajveer"
+            placeholder="yourname"
             required
           />
         </label>

@@ -34,7 +34,7 @@ describe('validateProject', () => {
       users: '2',
       difficulty: 4,
       coverage: 5,
-      githubUrl: 'https://github.com/rajveer-singh-dev/night-bus',
+      githubUrl: 'https://github.com/sample-dev/night-bus',
       shippedAt: '2026-08-01',
     }
     expect(validateProject(form)).toEqual({})

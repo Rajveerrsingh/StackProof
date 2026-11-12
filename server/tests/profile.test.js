@@ -10,20 +10,20 @@ async function build() {
 }
 
 describe('public profile', () => {
-  test('rajveer profile has the five projects, stats, and tool bars', async () => {
+  test('sam profile has the five projects, stats, and tool bars', async () => {
     const api = await build();
-    const res = await api.get('/api/u/rajveer');
+    const res = await api.get('/api/u/sam');
 
     expect(res.status).toBe(200);
     const { profile, formula } = res.body;
-    expect(profile.name).toBe('Rajveer Singh');
+    expect(profile.name).toBe('Sam Rivera');
     expect(profile.email).toBeUndefined();
     expect(profile.projects.map((p) => p.title).sort()).toEqual([
-      'Apex',
+      'Course Board',
+      'CoverMe',
       'Fitness Tracker API',
-      'ShiftSync',
-      'Sneaker Showcase',
-      'TaskFlow',
+      'Kicks Catalog',
+      'Sprint Room',
     ]);
     expect(profile.proofScore).toBeGreaterThan(0);
     expect(profile.proofScore).toBeLessThanOrEqual(100);

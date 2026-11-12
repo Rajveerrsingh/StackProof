@@ -42,16 +42,16 @@ export function LoginPage() {
           type="button"
           className="demo-card"
           onClick={() => {
-            setEmail('rajveer@stackproof.dev')
+            setEmail('sam@stackproof.dev')
             setPassword('demo1234')
           }}
         >
           <span>Demo login</span>
-          <strong>rajveer@stackproof.dev</strong>
+          <strong>sam@stackproof.dev</strong>
           <code>demo1234</code>
         </button>
         <p className="fine">
-          Or look around first. <Link to="/u/rajveer">Rajveer’s profile</Link> is public.
+          Or look around first. <Link to="/u/sam">Sam’s sample profile</Link> is public.
         </p>
       </section>
       <form className="panel" onSubmit={onSubmit}>

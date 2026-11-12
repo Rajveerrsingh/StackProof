@@ -14,7 +14,7 @@ const project: Project = {
   outcomes: { hoursSaved: 36, featuresShipped: 11, users: 9 },
   difficulty: 8,
   coverage: 6,
-  githubUrl: 'https://github.com/rajveer-singh-dev/shiftsync',
+  githubUrl: 'https://github.com/sample-dev/shiftsync',
   shippedAt: '2026-01-18',
   createdAt: '2026-01-18T00:00:00.000Z',
   updatedAt: '2026-01-18T00:00:00.000Z',
@@ -22,7 +22,7 @@ const project: Project = {
   proof: 78,
   xp: 851,
   breakdown: { skill: 50, features: 11, hours: 3.6, users: 4, github: 5, tools: 4 },
-  owner: { id: 'u1', username: 'rajveer', name: 'Rajveer Singh', proofScore: 79 },
+  owner: { id: 'u1', username: 'sam', name: 'Sam Rivera', proofScore: 79 },
 }
 
 describe('ProjectCard', () => {
@@ -38,6 +38,6 @@ describe('ProjectCard', () => {
     expect(screen.getByText('Cursor')).toBeInTheDocument()
     expect(screen.getByLabelText('Proof score 78')).toBeInTheDocument()
     expect(screen.getByText('36')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Rajveer Singh' })).toHaveAttribute('href', '/u/rajveer')
+    expect(screen.getByRole('link', { name: 'Sam Rivera' })).toHaveAttribute('href', '/u/sam')
   })
 })

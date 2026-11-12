@@ -1,5 +1,6 @@
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import type { ReactNode } from 'react'
+import { DEMO_MODE } from './api'
 import { AuthProvider, useAuth } from './auth'
 import { Layout } from './components/Layout'
 import { Loading } from './components/States'
@@ -21,9 +22,12 @@ function RequireAuth({ children }: { children: ReactNode }) {
   return children
 }
 
+// GitHub Pages has no SPA fallback, so the static demo uses hash URLs.
+const Router = DEMO_MODE ? HashRouter : BrowserRouter
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <AuthProvider>
         <Routes>
           <Route element={<Layout />}>
@@ -52,6 +56,6 @@ export default function App() {
           </Route>
         </Routes>
       </AuthProvider>
-    </BrowserRouter>
+    </Router>
   )
 }

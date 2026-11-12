@@ -7,7 +7,7 @@ const taskflow = {
   tools: ['Cursor', 'GitHub Copilot'],
   stack: ['React', 'Node.js', 'Express', 'MongoDB'],
   outcomes: { hoursSaved: 20, featuresShipped: 8, users: 12 },
-  githubUrl: 'https://github.com/rajveer-singh-dev/taskflow',
+  githubUrl: 'https://github.com/sample-dev/taskflow',
 };
 
 describe('project proof', () => {

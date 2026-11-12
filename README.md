@@ -2,7 +2,11 @@
 
 A board for shipped work. You log a project, the tools you actually used, and a few numbers. Each card gets a proof score and XP. Your public page at `/u/:username` rolls those into one proof score.
 
-Rajveer Singh’s demo profile is the one to open in an interview.
+**Live demo:** [rajveerrsingh.github.io/StackProof](https://rajveerrsingh.github.io/StackProof/) (demo mode, see below)
+
+**Stack:** React 19, TypeScript, Vite, React Router, Vitest + Testing Library on the client. Node.js, Express, Zod, JWT, bcrypt, Mongoose / MongoDB (optional) on the API, tested with Jest + Supertest. Docker Compose with nginx. GitHub Actions CI.
+
+The seeded developers (Sam Rivera and Mina Cho) and their projects are fictional sample data.
 
 ![Project board](docs/screenshots/feed.png)
 
@@ -10,13 +14,25 @@ Rajveer Singh’s demo profile is the one to open in an interview.
 
 | | |
 | --- | --- |
-| Email | `rajveer@stackproof.dev` |
+| Email | `sam@stackproof.dev` |
 | Password | `demo1234` |
-| Profile | [/u/rajveer](http://localhost:43123/u/rajveer) |
+| Profile | [/u/sam](http://localhost:43123/u/sam) |
 
 Mina Cho (`mina@stackproof.dev`, same password) is on the board too, so the feed is not a single-person list.
 
 Outcomes are self-reported. The math is on the profile and on each project page.
+
+## Live demo (demo mode)
+
+GitHub Pages only serves static files, so the hosted copy has no Express server and no database. `npm run build:demo` in `client/` builds the app with `VITE_DEMO=1`, then bundles `server/src/demo/browserApi.js` with esbuild. That module calls the same Zod schemas and services as the API, on the in-memory repository, and saves a snapshot to `localStorage`. Passwords are still bcrypt hashed.
+
+Differences from the real API, on purpose:
+
+- The session token is not a signed JWT (`server/src/demo/jwtShim.js`). There is no secret on a static host, and every account lives in your own browser.
+- Routes use hash URLs (`/#/u/sam`) because Pages has no SPA fallback.
+- Data stays in your browser. "Reset demo data" in the banner puts the seed back.
+
+`server/tests/demo.test.js` runs the demo module under Jest.
 
 ## Run it
 
@@ -55,6 +71,7 @@ That starts MongoDB, the API, and the web app. The site is on port 43123 and tal
 ```bash
 cd server && npm test
 cd client && npm test && npm run lint && npm run build
+cd client && npm run build:demo   # static demo in client/dist (needs server deps installed)
 ```
 
 API tests are Jest and supertest. The client uses Vitest and Testing Library. CI runs both on push.
@@ -65,9 +82,9 @@ Sign in, the board, a project, the form, and the public profile.
 
 ![Sign in](docs/screenshots/login.png)
 
-![ShiftSync](docs/screenshots/project.png)
+![A project page](docs/screenshots/project.png)
 
-![Rajveer’s profile](docs/screenshots/profile.png)
+![Sample profile](docs/screenshots/profile.png)
 
 The same layout on a phone:
 
@@ -101,7 +118,7 @@ The raw total can hit 104, then it is clamped to 100.
 + 0.10 × min(unique stack tags / 8, 1) × 100
 ```
 
-Volume fills up at four shipped projects, so one huge repo cannot max the score. A fifth project still moves quality, tools, and stack depth. On the seeded profile that lands at **79**, with **3,705 XP** across TaskFlow, ShiftSync, Apex, Fitness Tracker API, and Sneaker Showcase.
+Volume fills up at four shipped projects, so one huge repo cannot max the score. A fifth project still moves quality, tools, and stack depth. On the seeded sample profile that lands at **76**, with **3,455 XP** across five sample projects.
 
 ## Architecture
 

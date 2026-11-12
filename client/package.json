@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview --host 0.0.0.0 --port 43123",
-    "test": "vitest run"
+    "test": "vitest run",
+    "build:demo": "node scripts/build-demo.mjs"
   },
   "dependencies": {
     "react": "^19.3.1",

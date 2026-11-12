@@ -13,21 +13,21 @@ describe('auth', () => {
   test('demo login returns a token and hides the password', async () => {
     const api = await build();
     const res = await api.post('/api/auth/login').send({
-      email: 'rajveer@stackproof.dev',
+      email: 'sam@stackproof.dev',
       password: 'demo1234',
     });
 
     expect(res.status).toBe(200);
     expect(res.body.token).toEqual(expect.any(String));
-    expect(res.body.user.username).toBe('rajveer');
+    expect(res.body.user.username).toBe('sam');
     expect(res.body.user.passwordHash).toBeUndefined();
-    expect(res.body.user.email).toBe('rajveer@stackproof.dev');
+    expect(res.body.user.email).toBe('sam@stackproof.dev');
   });
 
   test('wrong password is a 401', async () => {
     const api = await build();
     const res = await api.post('/api/auth/login').send({
-      email: 'rajveer@stackproof.dev',
+      email: 'sam@stackproof.dev',
       password: 'not-the-password',
     });
     expect(res.status).toBe(401);
@@ -60,7 +60,7 @@ describe('auth', () => {
     const res = await api.post('/api/auth/register').send({
       name: 'Other Raj',
       username: 'raj2',
-      email: 'rajveer@stackproof.dev',
+      email: 'sam@stackproof.dev',
       password: 'another-pass',
     });
     expect(res.status).toBe(409);

@@ -4,12 +4,16 @@ function nowIso() {
   return new Date().toISOString();
 }
 
-function createMemoryRepository() {
-  const users = [];
-  const projects = [];
+// `initial` lets the browser demo restore a saved snapshot.
+function createMemoryRepository(initial = {}) {
+  const users = (initial.users || []).map((u) => ({ ...u }));
+  const projects = (initial.projects || []).map((p) => ({ ...p }));
 
   return {
     kind: 'memory',
+    snapshot() {
+      return { users: users.map((u) => ({ ...u })), projects: projects.map((p) => ({ ...p })) };
+    },
     users: {
       async create(data) {
         const doc = {

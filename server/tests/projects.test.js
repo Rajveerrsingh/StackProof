@@ -13,7 +13,7 @@ function payload(overrides = {}) {
     outcomes: { hoursSaved: 3, featuresShipped: 3, users: 2 },
     difficulty: 4,
     coverage: 5,
-    githubUrl: 'https://github.com/rajveer-singh-dev/night-bus',
+    githubUrl: 'https://github.com/sample-dev/night-bus',
     shippedAt: '2026-08-01',
     ...overrides,
   };
@@ -24,7 +24,7 @@ async function build() {
   await seed(repo);
   const api = request(createApp(repo));
   const login = await api.post('/api/auth/login').send({
-    email: 'rajveer@stackproof.dev',
+    email: 'sam@stackproof.dev',
     password: 'demo1234',
   });
   const mina = await api.post('/api/auth/login').send({
@@ -40,11 +40,11 @@ describe('projects', () => {
     const res = await api.get('/api/projects');
     expect(res.status).toBe(200);
     expect(res.body.projects.length).toBeGreaterThanOrEqual(5);
-    const card = res.body.projects.find((p) => p.title === 'ShiftSync');
+    const card = res.body.projects.find((p) => p.title === 'CoverMe');
     expect(card.tools).toEqual(expect.arrayContaining(['Cursor', 'Claude Code']));
     expect(card.proof).toEqual(expect.any(Number));
     expect(card.xp).toEqual(expect.any(Number));
-    expect(card.owner.username).toBe('rajveer');
+    expect(card.owner.username).toBe('sam');
     expect(card.owner.proofScore).toEqual(expect.any(Number));
   });
 
